@@ -58,7 +58,6 @@ namespace Construction
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Size = new System.Drawing.Size(248, 654);
             this.panelLeft.TabIndex = 10;
-            this.panelLeft.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // Login
             // 
@@ -74,6 +73,8 @@ namespace Construction
             this.Login.TabIndex = 14;
             this.Login.Text = "Login";
             this.Login.UseVisualStyleBackColor = true;
+            this.Login.MouseLeave += new System.EventHandler(this.Login_MouseLeave);
+            this.Login.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Login_MouseMove);
             // 
             // Vendors
             // 
@@ -89,6 +90,8 @@ namespace Construction
             this.Vendors.TabIndex = 13;
             this.Vendors.Text = "Vendors";
             this.Vendors.UseVisualStyleBackColor = true;
+            this.Vendors.MouseLeave += new System.EventHandler(this.Vendors_MouseLeave);
+            this.Vendors.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Vendors_MouseMove);
             // 
             // Projects
             // 
@@ -104,6 +107,8 @@ namespace Construction
             this.Projects.TabIndex = 12;
             this.Projects.Text = "Projects";
             this.Projects.UseVisualStyleBackColor = true;
+            this.Projects.MouseLeave += new System.EventHandler(this.Projects_MouseLeave);
+            this.Projects.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Projects_MouseMove);
             // 
             // Registration
             // 
@@ -120,6 +125,8 @@ namespace Construction
             this.Registration.Text = "Registration";
             this.Registration.UseVisualStyleBackColor = true;
             this.Registration.Click += new System.EventHandler(this.Registration_Click);
+            this.Registration.MouseLeave += new System.EventHandler(this.Registration_MouseLeave);
+            this.Registration.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Registration_MouseMove);
             // 
             // panelHome
             // 
@@ -161,10 +168,11 @@ namespace Construction
             // 
             this.label1.AutoSize = true;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(576, 23);
+            this.label1.Location = new System.Drawing.Point(583, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 20);
+            this.label1.Size = new System.Drawing.Size(79, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "Home";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

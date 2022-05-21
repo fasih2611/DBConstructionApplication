@@ -22,10 +22,6 @@ namespace Construction
         {
 
         }
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void Home_Click(object sender, EventArgs e)
         {
@@ -54,13 +50,51 @@ namespace Construction
 
         private void Registration_Click(object sender, EventArgs e)
         {
-            Register myForm = new Register();
-            myForm.FormBorderStyle = FormBorderStyle.None;
-            myForm.TopLevel = false;
-            myForm.AutoScroll = true;
-            panelMain.Controls.Add(myForm);
-            myForm.Show();
-            label1.Text = "Registration";
+            if (label1.Text !="Registration") {
+                Register myForm = new Register();
+                myForm.FormBorderStyle = FormBorderStyle.None;
+                myForm.TopLevel = false;
+                myForm.AutoScroll = true;
+                panelMain.Controls.Add(myForm);
+                myForm.Show();
+                label1.Text = "Registration";
+            }
+        }
+
+        private void Registration_MouseMove(object sender, MouseEventArgs e)
+        {
+            Registration.BackColor = Color.White;
+            
+        }
+
+        private void Registration_MouseLeave(object sender, EventArgs e)
+        {
+            Registration.BackColor = Color.FromArgb(125, 185, 245);
+        }
+
+        private void Projects_MouseMove(object sender, MouseEventArgs e)
+        {
+            Projects.BackColor = Color.White;
+        }
+        private void Projects_MouseLeave(object sender, EventArgs e)
+        {
+            Projects.BackColor = Color.FromArgb(125, 185, 245);
+        }
+        private void Vendors_MouseMove(object sender, MouseEventArgs e)
+        {
+            Vendors.BackColor = Color.White;
+        }
+        private void Vendors_MouseLeave(object sender, EventArgs e)
+        {
+            Vendors.BackColor = Color.FromArgb(125, 185, 245);
+        }
+        private void Login_MouseMove(object sender, MouseEventArgs e)
+        {
+            Login.BackColor = Color.White;
+        }
+        private void Login_MouseLeave(object sender, EventArgs e)
+        {
+            Login.BackColor = Color.FromArgb(125, 185, 245);
         }
     }
 }
