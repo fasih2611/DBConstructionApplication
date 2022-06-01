@@ -64,37 +64,47 @@ namespace Construction
         private void Registration_MouseMove(object sender, MouseEventArgs e)
         {
             Registration.BackColor = Color.White;
-            
+            Cursor = System.Windows.Forms.Cursors.Hand;
+
         }
 
         private void Registration_MouseLeave(object sender, EventArgs e)
         {
             Registration.BackColor = Color.FromArgb(125, 185, 245);
+            Cursor = System.Windows.Forms.Cursors.Default;
         }
 
         private void Projects_MouseMove(object sender, MouseEventArgs e)
         {
             Projects.BackColor = Color.White;
+            Cursor = System.Windows.Forms.Cursors.Hand;
         }
         private void Projects_MouseLeave(object sender, EventArgs e)
         {
             Projects.BackColor = Color.FromArgb(125, 185, 245);
+            Cursor= System.Windows.Forms.Cursors.Default;
         }
         private void Vendors_MouseMove(object sender, MouseEventArgs e)
         {
             Vendors.BackColor = Color.White;
+            Cursor= System.Windows.Forms.Cursors.Hand;
         }
         private void Vendors_MouseLeave(object sender, EventArgs e)
         {
             Vendors.BackColor = Color.FromArgb(125, 185, 245);
+            Cursor = System.Windows.Forms.Cursors.Default;
+
         }
         private void Login_MouseMove(object sender, MouseEventArgs e)
         {
             Login.BackColor = Color.White;
+            Cursor = System.Windows.Forms.Cursors.Hand;
         }
         private void Login_MouseLeave(object sender, EventArgs e)
         {
             Login.BackColor = Color.FromArgb(125, 185, 245);
+            Cursor = System.Windows.Forms.Cursors.Default;
+
         }
     }
 }

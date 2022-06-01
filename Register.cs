@@ -91,7 +91,7 @@ namespace Construction
                 if (rdbtnMale.Checked) { gender = "Male"; }
                 else { gender = "Female"; }
                 con.Open();
-                cmd = new SqlCommand("update Employees set FirstName='" + txtFName.Text + "',LastName='" + txtLName.Text + "',EmpNum=" + txtID.Text + ",gender='" + gender + "',Address='" + txtAddress.Text + "',RoleID=" + (ComboRole.SelectedIndex + 1) + "where EmployeeID=" + ID, con);
+                cmd = new SqlCommand("update Employees set FirstName='" + txtFName.Text + "',LastName='" + txtLName.Text + "',EmpNum=" + txtID.Text + ",gender='" + gender + "',Address='" + txtAddress.Text + "',RoleID='" + (ComboRole.SelectedIndex + 1) + "'where EmployeeID=" + ID, con);
                 cmd.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show("Your Data Has Been Updated!");
@@ -121,20 +121,13 @@ namespace Construction
         {
             try
             {
-                regex = new Regex("[A-Za-z]+");
+                regex = new Regex("^[0-9]+$");
                 if (regex.IsMatch(e.KeyChar.ToString()))
                 {
                     e.Handled = true;
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
-        }
-
-        private void Exit_Click(object sender, EventArgs e)
-        {
-            Main fshow = new Main();
-            fshow.Show();
-            this.Hide();
         }
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
