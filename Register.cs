@@ -124,8 +124,10 @@ namespace Construction
                 regex = new Regex("^[0-9]+$");
                 if (regex.IsMatch(e.KeyChar.ToString()))
                 {
-                    e.Handled = true;
+                    e.Handled = false;
                 }
+                else { e.Handled = true; }
+                
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }

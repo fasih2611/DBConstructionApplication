@@ -50,6 +50,7 @@ namespace Construction
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -98,6 +99,7 @@ namespace Construction
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.ComboRole);
             this.panel1.Controls.Add(this.label7);
@@ -129,7 +131,7 @@ namespace Construction
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
-            this.dataGridView1.Location = new System.Drawing.Point(18, 351);
+            this.dataGridView1.Location = new System.Drawing.Point(23, 357);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
@@ -206,6 +208,7 @@ namespace Construction
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(166, 27);
             this.txtID.TabIndex = 25;
+            this.txtID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtID_KeyPress);
             // 
             // label5
             // 
@@ -288,6 +291,17 @@ namespace Construction
             this.label1.TabIndex = 16;
             this.label1.Text = "First Name:";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(284, 300);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(444, 54);
+            this.label8.TabIndex = 32;
+            this.label8.Text = "Employee Information";
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -331,5 +345,6 @@ namespace Construction
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label8;
     }
 }
