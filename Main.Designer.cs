@@ -31,6 +31,7 @@ namespace Construction
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelLeft = new System.Windows.Forms.Panel();
+            this.btnAssignWork = new System.Windows.Forms.Button();
             this.Login = new System.Windows.Forms.Button();
             this.Vendors = new System.Windows.Forms.Button();
             this.Projects = new System.Windows.Forms.Button();
@@ -48,6 +49,7 @@ namespace Construction
             // panelLeft
             // 
             this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(185)))), ((int)(((byte)(245)))));
+            this.panelLeft.Controls.Add(this.btnAssignWork);
             this.panelLeft.Controls.Add(this.Login);
             this.panelLeft.Controls.Add(this.Vendors);
             this.panelLeft.Controls.Add(this.Projects);
@@ -58,6 +60,24 @@ namespace Construction
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Size = new System.Drawing.Size(248, 654);
             this.panelLeft.TabIndex = 10;
+            // 
+            // btnAssignWork
+            // 
+            this.btnAssignWork.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAssignWork.FlatAppearance.BorderSize = 0;
+            this.btnAssignWork.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAssignWork.ForeColor = System.Drawing.Color.Black;
+            this.btnAssignWork.Image = global::Construction.Properties.Resources.icons8_wrench_64;
+            this.btnAssignWork.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAssignWork.Location = new System.Drawing.Point(0, 362);
+            this.btnAssignWork.Name = "btnAssignWork";
+            this.btnAssignWork.Size = new System.Drawing.Size(248, 74);
+            this.btnAssignWork.TabIndex = 15;
+            this.btnAssignWork.Text = "Assign Work";
+            this.btnAssignWork.UseVisualStyleBackColor = true;
+            this.btnAssignWork.Click += new System.EventHandler(this.btnAssignWork_Click);
+            this.btnAssignWork.MouseLeave += new System.EventHandler(this.btnAssignWork_MouseLeave);
+            this.btnAssignWork.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnAssignWork_MouseMove);
             // 
             // Login
             // 
@@ -71,8 +91,9 @@ namespace Construction
             this.Login.Name = "Login";
             this.Login.Size = new System.Drawing.Size(248, 74);
             this.Login.TabIndex = 14;
-            this.Login.Text = "Login";
+            this.Login.Text = "Sign Up";
             this.Login.UseVisualStyleBackColor = true;
+            this.Login.Click += new System.EventHandler(this.Login_Click);
             this.Login.MouseLeave += new System.EventHandler(this.Login_MouseLeave);
             this.Login.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Login_MouseMove);
             // 
@@ -90,6 +111,7 @@ namespace Construction
             this.Vendors.TabIndex = 13;
             this.Vendors.Text = "Vendors";
             this.Vendors.UseVisualStyleBackColor = true;
+            this.Vendors.Click += new System.EventHandler(this.Vendors_Click);
             this.Vendors.MouseLeave += new System.EventHandler(this.Vendors_MouseLeave);
             this.Vendors.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Vendors_MouseMove);
             // 
@@ -107,6 +129,7 @@ namespace Construction
             this.Projects.TabIndex = 12;
             this.Projects.Text = "Projects";
             this.Projects.UseVisualStyleBackColor = true;
+            this.Projects.Click += new System.EventHandler(this.Projects_Click);
             this.Projects.MouseLeave += new System.EventHandler(this.Projects_MouseLeave);
             this.Projects.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Projects_MouseMove);
             // 
@@ -122,7 +145,7 @@ namespace Construction
             this.Registration.Name = "Registration";
             this.Registration.Size = new System.Drawing.Size(248, 74);
             this.Registration.TabIndex = 11;
-            this.Registration.Text = "Registration";
+            this.Registration.Text = "Employees";
             this.Registration.UseVisualStyleBackColor = true;
             this.Registration.Click += new System.EventHandler(this.Registration_Click);
             this.Registration.MouseLeave += new System.EventHandler(this.Registration_MouseLeave);
@@ -156,7 +179,7 @@ namespace Construction
             // 
             // panelTop
             // 
-            this.panelTop.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(185)))), ((int)(((byte)(245)))));
             this.panelTop.Controls.Add(this.label1);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(248, 0);
@@ -179,8 +202,9 @@ namespace Construction
             // 
             // panelMain
             // 
-            this.panelMain.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelMain.BackColor = System.Drawing.Color.White;
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.ForeColor = System.Drawing.Color.Black;
             this.panelMain.Location = new System.Drawing.Point(248, 66);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(1265, 588);
@@ -201,6 +225,8 @@ namespace Construction
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.Text = "Dashboard";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panelLeft.ResumeLayout(false);
             this.panelHome.ResumeLayout(false);
@@ -221,5 +247,7 @@ namespace Construction
         private System.Windows.Forms.Button Home;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnAssignWork;
     }
 }

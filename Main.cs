@@ -38,9 +38,9 @@ namespace Construction
                 else 
                 {
                     panelLeft.Size = new Size(248, 654);
-                    Registration.Text = "Registration";
+                    Registration.Text = "Employees";
                     Vendors.Text = "Vendors";
-                    Login.Text = "Login";
+                    Login.Text = "Sign Up";
                     Projects.Text = "Projects";
                 }
                 
@@ -51,6 +51,7 @@ namespace Construction
         private void Registration_Click(object sender, EventArgs e)
         {
             if (label1.Text !="Registration") {
+                panelMain.Controls.Clear();
                 Register myForm = new Register();
                 myForm.FormBorderStyle = FormBorderStyle.None;
                 myForm.TopLevel = false;
@@ -105,6 +106,105 @@ namespace Construction
             Login.BackColor = Color.FromArgb(125, 185, 245);
             Cursor = System.Windows.Forms.Cursors.Default;
 
+        }
+
+        private void Projects_Click(object sender, EventArgs e)
+        {
+            if (label1.Text != "Projects")
+            {
+                panelMain.Controls.Clear();
+                
+                Projects myForm = new Projects();
+                myForm.FormBorderStyle = FormBorderStyle.None;
+                myForm.TopLevel = false;
+                myForm.AutoScroll = true;
+                panelMain.Controls.Add(myForm);
+                myForm.Show();
+                label1.Text = "Projects";
+                
+            }
+        }
+
+        private void Vendors_Click(object sender, EventArgs e)
+        {
+            if (label1.Text != "Vendors")
+            {
+                panelMain.Controls.Clear();
+              
+                Vendors myForm = new Vendors();
+                myForm.FormBorderStyle = FormBorderStyle.None;
+                myForm.TopLevel = false;
+                myForm.AutoScroll = true;
+                panelMain.Controls.Add(myForm);
+                myForm.Show();
+                label1.Text = "Vendors";
+            }
+        }
+
+        private void Login_Click(object sender, EventArgs e)
+        {
+            if (label1.Text != "Sign Up")
+            {
+
+                panelMain.Controls.Clear();
+
+                SignUp myForm = new SignUp();
+                myForm.FormBorderStyle = FormBorderStyle.None;
+                myForm.TopLevel = false;
+                myForm.AutoScroll = true;
+                panelMain.Controls.Add(myForm);
+                myForm.Show();
+                label1.Text = "Sign Up";
+            }
+        }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                if (MessageBox.Show("Are you sure want to exit?",
+                               "Exiting",
+                                MessageBoxButtons.OKCancel,
+                                MessageBoxIcon.Information) == DialogResult.OK)
+                    Environment.Exit(1);
+                else
+                    e.Cancel = true; // to don't close form is user change his mind
+            }
+        }
+
+        private void Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           
+        }
+
+        private void btnAssignWork_Click(object sender, EventArgs e)
+        {
+
+            if (label1.Text != "Assign Work")
+            {
+
+                panelMain.Controls.Clear();
+
+                AssignWork myForm = new AssignWork();
+                myForm.FormBorderStyle = FormBorderStyle.None;
+                myForm.TopLevel = false;
+                myForm.AutoScroll = true;
+                panelMain.Controls.Add(myForm);
+                myForm.Show();
+                label1.Text = "Assign Work";
+            }
+        }
+
+        private void btnAssignWork_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnAssignWork.BackColor = Color.White;
+            Cursor = System.Windows.Forms.Cursors.Hand;
+        }
+
+        private void btnAssignWork_MouseLeave(object sender, EventArgs e)
+        {
+            btnAssignWork.BackColor = Color.FromArgb(125, 185, 245);
+            Cursor = System.Windows.Forms.Cursors.Default;
         }
     }
 }

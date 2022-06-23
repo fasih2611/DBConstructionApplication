@@ -14,7 +14,7 @@ namespace Construction
 {
     public partial class Register : Form
     {
-        string path = @"Data Source=XBOX\SQLEXPRESS;Initial Catalog=construction;Integrated Security=True;";
+        string path = "Data Source=" + Environment.MachineName.ToString() + "\\SQLEXPRESS;Initial Catalog=construction;Integrated Security=True;";
         SqlConnection con;
         SqlCommand cmd;
         SqlDataAdapter adpt;
@@ -25,6 +25,7 @@ namespace Construction
         {
             InitializeComponent();
             con = new SqlConnection(path);
+            Location = new Point(0, 0);
             button3.Enabled = false;
             button1.Enabled = false;
             display();
@@ -34,7 +35,7 @@ namespace Construction
         {
             if (txtAddress.Text == "" || txtEmail.Text == "" || txtFName.Text == "" || txtLName.Text == "" || txtID.Text == "" || ComboRole.Text == "" || (!rdbtnMale.Checked && !rdbtnFemale.Checked))
             {
-                MessageBox.Show("Please Fill out all fields!");
+                MessageBox.Show("Please Fill out all fields!","Invalid!",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 return;
             }
             else
@@ -48,13 +49,13 @@ namespace Construction
                     cmd = new SqlCommand("insert into Employees values('" + txtFName.Text + "','" + txtLName.Text + "','" + txtID.Text + "','" + gender + "','" + txtEmail.Text + "','" + txtAddress.Text +"','"+(ComboRole.SelectedIndex + 1)+ "')", con);
                     cmd.ExecuteNonQuery();
                     con.Close();
-                    MessageBox.Show("Data has been added!");
+                    MessageBox.Show("Data has been added!","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     clear();
                     display();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "Something Went Wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -74,7 +75,7 @@ namespace Construction
                 dataGridView1.DataSource = dt;
                 con.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Something Went Wrong", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
 
@@ -85,7 +86,7 @@ namespace Construction
                 String gender;
                 if (txtAddress.Text == "" || txtEmail.Text == "" || txtFName.Text == "" || txtLName.Text == "" || txtID.Text == "" || ComboRole.Text == "" || (!rdbtnMale.Checked && !rdbtnFemale.Checked))
                 {
-                    MessageBox.Show("Please Fill out all fields!");
+                    MessageBox.Show("Please Fill out all fields!","Invalid",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                     return;
                 }
                 if (rdbtnMale.Checked) { gender = "Male"; }
@@ -94,12 +95,13 @@ namespace Construction
                 cmd = new SqlCommand("update Employees set FirstName='" + txtFName.Text + "',LastName='" + txtLName.Text + "',EmpNum=" + txtID.Text + ",gender='" + gender + "',Address='" + txtAddress.Text + "',RoleID='" + (ComboRole.SelectedIndex + 1) + "'where EmployeeID=" + ID, con);
                 cmd.ExecuteNonQuery();
                 con.Close();
-                MessageBox.Show("Your Data Has Been Updated!");
+                MessageBox.Show("Your Data Has Been Updated!","Success!",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 display();
-                
-                
+                button1.Enabled = button3.Enabled = false;
+               
+
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Something Went Wrong", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private void Delete_Click(object sender, EventArgs e)
@@ -110,10 +112,11 @@ namespace Construction
                 cmd = new SqlCommand("Delete from Employees where EmployeeID='" + ID+"'", con);
                 cmd.ExecuteNonQuery();
                 con.Close();
-                MessageBox.Show("Entry Has Been Deleted");
+                MessageBox.Show("Entry Has Been Deleted","Success!",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 display();
+                button1.Enabled = button3.Enabled = true;
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Something Went Wrong", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
 
@@ -146,8 +149,30 @@ namespace Construction
                 txtAddress.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
                 ComboRole.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
                 button1.Enabled = button3.Enabled = true;
+                
+             
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Something Went Wrong", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+  
+        private void txtFName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                regex = new Regex("^[a-zA-Z]+$");
+                if (regex.IsMatch(e.KeyChar.ToString()))
+                {
+                    e.Handled = false;
+                }
+                else { e.Handled = true; }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
+            
     }
 }
