@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Construction
 {
@@ -34,7 +35,8 @@ namespace Construction
                     Vendors.Text = "";
                     Login.Text = "";
                     Projects.Text = "";
-                }
+                    btnAssignWork.Text = "";
+                    }
                 else 
                 {
                     panelLeft.Size = new Size(248, 654);
@@ -42,6 +44,8 @@ namespace Construction
                     Vendors.Text = "Vendors";
                     Login.Text = "Sign Up";
                     Projects.Text = "Projects";
+                    btnAssignWork.Text = "Assign Work";
+                    
                 }
                 
             }
@@ -206,5 +210,8 @@ namespace Construction
             btnAssignWork.BackColor = Color.FromArgb(125, 185, 245);
             Cursor = System.Windows.Forms.Cursors.Default;
         }
+
+        
+        
     }
 }

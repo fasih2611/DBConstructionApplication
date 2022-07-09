@@ -59,7 +59,7 @@
             this.materialListBox1.Name = "materialListBox1";
             this.materialListBox1.SelectedIndex = -1;
             this.materialListBox1.SelectedItem = null;
-            this.materialListBox1.Size = new System.Drawing.Size(150, 695);
+            this.materialListBox1.Size = new System.Drawing.Size(150, 761);
             this.materialListBox1.TabIndex = 0;
             this.materialListBox1.SelectedIndexChanged += new MaterialSkin.Controls.MaterialListBox.SelectedIndexChangedEventHandler(this.materialListBox1_SelectedIndexChanged);
             // 
@@ -69,7 +69,7 @@
             this.VendorsPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.VendorsPanel.Location = new System.Drawing.Point(156, 0);
             this.VendorsPanel.Name = "VendorsPanel";
-            this.VendorsPanel.Size = new System.Drawing.Size(877, 695);
+            this.VendorsPanel.Size = new System.Drawing.Size(877, 761);
             this.VendorsPanel.TabIndex = 1;
             this.VendorsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.VendorsPanel_Paint_1);
             // 
@@ -78,7 +78,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1033, 695);
+            this.ClientSize = new System.Drawing.Size(1033, 761);
             this.Controls.Add(this.materialListBox1);
             this.Controls.Add(this.VendorsPanel);
             this.Name = "Vendors";

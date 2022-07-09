@@ -31,6 +31,7 @@ namespace Construction
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labEmail = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.rdbtnFemale = new MaterialSkin.Controls.MaterialRadioButton();
             this.rdbtnMale = new MaterialSkin.Controls.MaterialRadioButton();
@@ -51,6 +52,7 @@ namespace Construction
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.labEmail);
             this.panel1.Controls.Add(this.materialLabel1);
             this.panel1.Controls.Add(this.rdbtnFemale);
             this.panel1.Controls.Add(this.rdbtnMale);
@@ -71,6 +73,19 @@ namespace Construction
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1181, 698);
             this.panel1.TabIndex = 4;
+            // 
+            // labEmail
+            // 
+            this.labEmail.AutoSize = true;
+            this.labEmail.Depth = 0;
+            this.labEmail.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labEmail.Location = new System.Drawing.Point(798, 627);
+            this.labEmail.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labEmail.Name = "labEmail";
+            this.labEmail.Size = new System.Drawing.Size(99, 19);
+            this.labEmail.TabIndex = 44;
+            this.labEmail.Text = "*Email Invalid";
+            this.labEmail.Visible = false;
             // 
             // materialLabel1
             // 
@@ -157,7 +172,7 @@ namespace Construction
             this.txtID.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtID.Hint = "ID";
             this.txtID.LeadingIcon = null;
-            this.txtID.Location = new System.Drawing.Point(265, 115);
+            this.txtID.Location = new System.Drawing.Point(318, 115);
             this.txtID.MaxLength = 50;
             this.txtID.MouseState = MaterialSkin.MouseState.OUT;
             this.txtID.Multiline = false;
@@ -182,12 +197,11 @@ namespace Construction
             this.txtAddress.MouseState = MaterialSkin.MouseState.OUT;
             this.txtAddress.Multiline = false;
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(490, 50);
+            this.txtAddress.Size = new System.Drawing.Size(543, 50);
             this.txtAddress.TabIndex = 38;
             this.txtAddress.Text = "";
             this.txtAddress.TrailingIcon = null;
             this.txtAddress.UseAccent = false;
-            this.txtAddress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFName_KeyPress);
             // 
             // txtEmail
             // 
@@ -207,7 +221,7 @@ namespace Construction
             this.txtEmail.Text = "";
             this.txtEmail.TrailingIcon = null;
             this.txtEmail.UseAccent = false;
-            this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFName_KeyPress);
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // txtLName
             // 
@@ -217,7 +231,7 @@ namespace Construction
             this.txtLName.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtLName.Hint = "Last Name";
             this.txtLName.LeadingIcon = null;
-            this.txtLName.Location = new System.Drawing.Point(265, 59);
+            this.txtLName.Location = new System.Drawing.Point(318, 59);
             this.txtLName.MaxLength = 50;
             this.txtLName.MouseState = MaterialSkin.MouseState.OUT;
             this.txtLName.Multiline = false;
@@ -363,5 +377,6 @@ namespace Construction
         private MaterialSkin.Controls.MaterialButton button3;
         private MaterialSkin.Controls.MaterialButton button1;
         private MaterialSkin.Controls.MaterialButton button2;
+        private MaterialSkin.Controls.MaterialLabel labEmail;
     }
 }

@@ -173,6 +173,39 @@ namespace Construction
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
-            
+
+       
+
+        bool IsValidEmail(string eMail)
+        {
+            bool Result = false;
+
+            try
+            {
+                var eMailValidator = new System.Net.Mail.MailAddress(eMail);
+
+                Result = (eMail.LastIndexOf(".") > eMail.LastIndexOf("@"));
+            }
+            catch
+            {
+                Result = false;
+            };
+
+            return Result;
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            if (IsValidEmail(txtEmail.Text)) 
+            {
+                labEmail.Visible = false;
+                button1.Enabled = button2.Enabled = button3.Enabled = true;
+            }
+            else 
+            {
+                labEmail.Visible = true;
+                button1.Enabled = button2.Enabled = button3.Enabled = false;
+            }
+        }
     }
 }
